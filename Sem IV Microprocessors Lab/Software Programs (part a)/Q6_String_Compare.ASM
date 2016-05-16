@@ -1,8 +1,8 @@
 .model small
 
 .data
-		str1 db 80 dup(0)
-		str2 db 80 dup(0)
+		str1 db 80 dup(?)
+		str2 db 80 dup(?)
 		m1 db "Enter the first string : $"
 		m2 db "Enter the second string : $"
 		case1 db "The strings are equal.$"
@@ -15,6 +15,8 @@
 		mov ds,ax
 		mov es,ax
 
+		CLD
+		mov cx,00h
 		mov dx,offset m1
 		mov ah,09h
 		int 21h
@@ -34,9 +36,8 @@
 		cmp bl,bh
 		jne nequal
 
-		lea si,str1
-		lea di,str2
-		;mov cl,bl
+		mov si,offset str1
+		mov di,offset str2
 		repe cmpsb
 		JCXZ equal
 
@@ -107,15 +108,6 @@ again:
 		cmp al,0DH
 		jne again
 		dec cx
-		;cmp al,0DH
-		;je done
-		;mov [si],al
-		;inc cl
-		;inc si
-		;jmp again
-done:
-		;mov al,'$'
-		;mov [si],al
 read endp
 ret
 end
