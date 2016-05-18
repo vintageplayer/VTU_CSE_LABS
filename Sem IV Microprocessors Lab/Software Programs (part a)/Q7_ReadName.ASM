@@ -9,42 +9,42 @@
 		mov ax,@data
 		mov ds,ax
 
-		mov dx,offset m1
-		mov ah,09h
-		int 21h
+		mov dx,offset m1 		; Loading the effective address of array m1 in dx
+		mov ah,09h 				; Storing code to display an array of bytes delimited by '$'
+		int 21h 				; BIOS interrupt (Displaying an array of bytes)
 
-		lea si,str
-		mov ah,01h
+		lea si,str 				; Loading the effective address of array str in si
+		mov ah,01h 				; Storing the code to input a character
 read:
-		int 21h
-		cmp al,0DH
-		je next
-		mov [si],al
-		inc si
-		jmp read
+		int 21h 				; BOIS interrupt (Reading a character)
+		cmp al,0DH 				; Comapring input with carriage return character
+		je next 				; Jumping to label next if equal
+		mov [si],al 			; Storing the input into memory reference by si
+		inc si 					; Pointing si to the next memory location
+		jmp read 				; Jumping to read label to continue reading
 
 next:
-		mov al,'$'
-		mov [si],al
+		mov al,'$' 				; Storing '$' in al
+		mov [si],al 			; Storing the character in al at the end of array as delimiter
 
-		mov ax,0003h
-		int 10h
+		mov ax,0003h 			; Storing code to clear the screen
+		int 10h					; DOS interrupt (Clearing the screen)
 
-		lea si,str
+		lea si,str 				; Loading the effective address of array str in si
 
-		mov ah,02h
-		mov bh,00h
-		mov dl,25h
-		mov dh,10h
-		int 10h
+		mov ah,02h 				; Storing code to select video mode
+		mov bh,00h 				; Specifying the number of pages
+		mov dl,25h 				; Specifying the column number
+		mov dh,10h 				; Specifying the row number
+		int 10h					; DOS interrupt (Setting the cursor position)
 
-		mov dx,offset m2
-		mov ah,09h
-		int 21h
+		mov dx,offset m2 		; Loading the effective address of array m2
+		mov ah,09h 				; Storing code to display array of bytes delimited by '$'
+		int 21h 				; BIOS interrupt (Displaying the array of bytes)
 
-		mov dx,offset str
-		int 21h
+		mov dx,offset str 		; Loading the effective address of array str
+		int 21h 				; BIOS interrupt (Displaying the array of bytes)
 
-		mov ah,4ch
-		int 21h
+		mov ah,4ch 				; Storing the code to terminate a process
+		int 21h 				; BIOS interrupt (Terminating the program)
 end

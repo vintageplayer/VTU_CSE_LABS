@@ -11,36 +11,36 @@
         mov ds,ax
         mov es,ax
 
-        lea si,str1
-        lea di,str2
-        add di,len
-        dec di
-        mov cx,len
+        lea si,str1 			; Loading the effective address of array 1 in si
+        lea di,str2 			; Loading the effective address of array 2 in di
+        add di,len 				; Making di to point to the position of de-limiting character
+        dec di 					; Reducing di to point to the position of last character
+        mov cx,len 				; Storing the number of characters as count
 again:
-        mov al,[si]
-		mov [di],al
-		inc si
-		dec di
-		loop again
+        mov al,[si] 			; Copying the current charater in al
+		mov [di],al 			; Storing the current character in new array
+		inc si 					; Pointing to the next character in source array
+		dec di 					; Reducing the index inorder to reverse the string
+		loop again				; Reducing cx value. If zero repeating the process
 
-		lea si,str1
-		lea di,str2
-		mov cx,len
-		CLD
+		lea si,str1				; Loading the effective address of the original string
+		lea di,str2				; Loading the effective address of the reverse string
+		mov cx,len				; Storing the number of characters in cx 
+		CLD						; Clearing the direction flag
 
-		repe cmpsb
-		JCXZ match
+		repe cmpsb				; Repeatedly comparing the strings pointed by si and di till cx=0 or a character doesn't match
+		JCXZ match				; Jumping to match label if cx = 0
 
-		mov dx,offset m1
-		mov ah,09h
-		int 21h
-		jmp terminate
+		mov dx,offset m1		; Loading the effective address of m1 in dx
+		mov ah,09h				; Code to display an array of bytes delimited by '$'
+		int 21h					; BIOS interrupt (Displaying the message)
+		jmp terminate			; Jumping to terminate label
 match:
-		mov dx,offset m2
-		mov ah,09h
-		int 21h
+		mov dx,offset m2		; Loading the effective address of the second message
+		mov ah,09h				; Code to print a message delimited by '$'
+		int 21h					; BIOS interrupt (Displaying the message)
 
 terminate:
-		mov ah,4ch
-		int 21h
+		mov ah,4ch				; Code to terminate a process
+		int 21h					; BIOS interrupt (Terminating the program)
 end
