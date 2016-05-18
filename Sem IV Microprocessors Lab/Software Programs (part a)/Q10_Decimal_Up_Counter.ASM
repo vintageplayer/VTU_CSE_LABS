@@ -32,44 +32,44 @@ inner:
 		cmp bh,0AH 			; checking for value 10 in bh
 		jne outer
 
-		mov ah,4ch
-		int 21h
+		mov ah,4ch 			; Terminating the
+		int 21h 			; process
 
 delay proc
-		push cx
-		push bx
-		mov cx,0bffh
+		push cx 			; Storing the cx register value
+		push bx 			; Storing the bx register value
+		mov cx,0bffh 		; Initializing the outer loop count
 loop1:
-		mov bx,00ffh
+		mov bx,00ffh 		; Initializing the inner loop count
 loop2:
-		dec bx
-		jnz loop2
-		loop loop1
-		pop bx
-		pop cx
+		dec bx 				; Reducing the inner loop count
+		jnz loop2 			; Checking for end of inner loop
+		loop loop1 			; Checking cx value and jumping to loop1 if cx!=0
+		pop bx 				; restoring bx value
+		pop cx 				; restoring cx value
 		ret
 delay endp
 
 clear proc
-		push ax
-		mov ax,0003h
-		int 10h
-		pop ax
+		push ax 			; Storing ax register value
+		mov ax,0003h 		; Code to clear a screen
+		int 10h 			; DOS interrup (clearing the  screen)
+		pop ax 				; Restoring ax register value
 clear endp
 setcursor proc
-		push ax
-		push dx
-		push bx
+		push ax 			; Storing the
+		push dx 			; register values
+		push bx				; in stack
 
-		mov bh,00h
-		mov ah,02h
-		mov dl,25h
-		mov dh,0Ah
-		int 10h
+		mov bh,00h 			; Setting the number of video pages to 1
+		mov ah,02h 			; Setting the code to set cursor position
+		mov dl,25h 			; Setting the column number
+		mov dh,0Ah 			; Setting the row number
+		int 10h 			; Calling DOS interrupt (Setting the cursor position)
 
-		pop bx
-		pop dx
-		pop ax
+		pop bx 				; Restoring the
+		pop dx				; register values
+		pop ax				; from stack
 		ret
 setcursor endp
 
