@@ -4,7 +4,7 @@
 
 To run these codes, an assembler is required.
 
-MASM 8086 has been used to develop and test the codes. Andcopy has been included in the repository.
+MASM 8086 has been used to develop and test the codes. A copy of the assembler has been included in the repository.
 
 # DOS-ENVIRONMENT
 
