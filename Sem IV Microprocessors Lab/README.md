@@ -10,7 +10,7 @@ MASM 8086 has been used to develop and test the codes. A copy of the assembler h
 
 If an OS supprting execution of dos commands is not available, emulators can be used.
 
-Two of such emulators are :
+Two such emulators are :
 
 1) DosBox - http://www.dosbox.com/
 
