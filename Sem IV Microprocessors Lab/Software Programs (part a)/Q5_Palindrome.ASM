@@ -33,14 +33,14 @@ again:
 
 		mov dx,offset m1		; Loading the effective address of m1 in dx
 		mov ah,09h				; Code to display an array of bytes delimited by '$'
-		int 21h					; BIOS interrupt (Displaying the message)
+		int 21h					; DOS interrupt (Displaying the message)
 		jmp terminate			; Jumping to terminate label
 match:
 		mov dx,offset m2		; Loading the effective address of the second message
 		mov ah,09h				; Code to print a message delimited by '$'
-		int 21h					; BIOS interrupt (Displaying the message)
+		int 21h					; DOS interrupt (Displaying the message)
 
 terminate:
 		mov ah,4ch				; Code to terminate a process
-		int 21h					; BIOS interrupt (Terminating the program)
+		int 21h					; DOS interrupt (Terminating the program)
 end

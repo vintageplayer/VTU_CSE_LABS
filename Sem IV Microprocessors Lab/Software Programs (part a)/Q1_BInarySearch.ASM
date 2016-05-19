@@ -46,29 +46,29 @@ success:
 		mov cl,al 							; Storing the index to the element
 		lea dx,m2 							; Loading the success message address in dx
 		mov ah,09h							; Code to print an array 
-		int 21h 							; BIOS interrupt (displaying the message)
+		int 21h 							; DOS interrupt (displaying the message)
 
 		mov dl,0AH 							; ASCII code for carriage-return (end of line)
 		mov ah,02h 							; Code to print one character
-		int 21h 							; BIOS interrupt (printing a character)
+		int 21h 							; DOS interrupt (printing a character)
 
 		mov dx,offset res 					; Loading the address of res array in dx
 		mov ah,09h 							; Code to print an array of bytes delimited by '$' 
-		int 21h 							; BIOS interrupt (displaying the message)
+		int 21h 							; DOS interrupt (displaying the message)
 
 		mov dl,cl 							; Copying the position of the element in dl
 		add dl,01h 							; Incrementing to start indexing from 1 instead of 0
 		add dl,30H							; Storing the ASCII code of the digit to be printed
 		mov ah,02h 							; Code to  print a character
-		int 21h 							; BIOS interrupt (printing the characer)
+		int 21h 							; DOS interrupt (printing the characer)
 		jmp terminate
 
 fail:
 		mov dx,offset m1 					; Loading the message address
 		mov ah,09h 							; Code to print an array
-		int 21h								; BIOS interrupt (printing the message)
+		int 21h								; DOS interrupt (printing the message)
 
 terminate:
 		mov ah,4ch 							; Code to terminate the process
-		int 21h 							; BIOS interrupt (terminating the process)
+		int 21h 							; DOS interrupt (terminating the process)
 end

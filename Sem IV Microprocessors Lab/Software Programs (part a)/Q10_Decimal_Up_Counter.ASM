@@ -53,7 +53,7 @@ delay endp
 clear proc
 		push ax 			; Storing ax register value
 		mov ax,0003h 		; Code to clear a screen
-		int 10h 			; DOS interrup (clearing the  screen)
+		int 10h 			; BIOS interrup (clearing the  screen)
 		pop ax 				; Restoring ax register value
 clear endp
 setcursor proc
@@ -65,7 +65,7 @@ setcursor proc
 		mov ah,02h 			; Setting the code to set cursor position
 		mov dl,25h 			; Setting the column number
 		mov dh,0Ah 			; Setting the row number
-		int 10h 			; Calling DOS interrupt (Setting the cursor position)
+		int 10h 			; Calling BIOS interrupt (Setting the cursor position)
 
 		pop bx 				; Restoring the
 		pop dx				; register values

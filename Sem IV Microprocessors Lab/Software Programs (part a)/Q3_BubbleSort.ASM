@@ -11,7 +11,7 @@
 
 		lea dx,m2 				; Loading the effective address of the array m2
 		mov ah,09h 				; Code to display an array of bytes delimited by '$'
-		int 21h 				; BIOS interrup (Displaying the message)
+		int 21h 				; DOS interrup (Displaying the message)
 
 		mov bl,len 				; Storing the lenght in bl
 		dec bl					; Indexing from 0 instead of 1
@@ -35,7 +35,7 @@ next:
 
 		mov dl,0AH				; Moving the ASCII value for newline character
 		mov ah,02h				; Code for displaying a character
-		int 21h					; BIOS interrup (Displaying the newline character)
+		int 21h					; DOS interrup (Displaying the newline character)
 
 		mov cl,len				; Storing the number of elements in cl
 		mov si,00				; Storing the index of the first element in si
@@ -43,12 +43,12 @@ next:
 disp:
 		mov dl,arr[si]			; Storing the currently index character in dl
 		add dl,30H				; Storing the ASCII value for the digit to be displayed
-		int 21h					; BIOS interrupt (displaying a character)
+		int 21h					; DOS interrupt (displaying a character)
 		mov dl,' '				; Moving the ASCII value of space character in dl
-		int 21h					; BIOS interrupt (Displaying a character)
+		int 21h					; DOS interrupt (Displaying a character)
 		inc si					; Indexing the next character in the array
 		loop disp				; Decrementing cx register. Jumping to disp label if not zero
 
 		mov ah,4ch				; Code to terminate a process
-		int 21h					; BIOS interrupt (Terminating the program)
+		int 21h					; DOS interrupt (Terminating the program)
 end

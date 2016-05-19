@@ -112,8 +112,8 @@ display:
         add dl,01H              ; Adding to change indexing from 0 to 1
         add dl,30H              ; Storing the ASCII code for the number
         mov ah,02H              ; Code to print a character
-        int 21h                 ; BIOS interrupt
+        int 21h                 ; DOS interrupt (Displaying the character)
 
         mov ah,4ch              ; Code to terminate the process
-        int 21h                 ; BIOS interrupt (terminating the process)
+        int 21h                 ; DOS interrupt (terminating the process)
 end

@@ -8,7 +8,7 @@
 		mov ax,@data
 		mov ds,ax
 		mov ax,0003h		; code to clear the screen 
-		int 10h				; DOS interrupt
+		int 10h				; BIOS interrupt
 
 		mov dx,offset m1	; Displaying the
 		mov ah,09h			; first
@@ -32,7 +32,7 @@
 		mov bh,00h 			; selecting the screen page
 		mov dh,0dh 			; Specifying the row number
 		mov dl,25h 			; Specifying the column number
-		int 10h 			; bios interrupt
+		int 10h 			; BIOS interrupt
 
 		mov al,bl 			 
 		mov cl,04h			; Storing the count
@@ -55,10 +55,10 @@ next2:
 
 		mov dl,bh 			; mov the higher digit of the ascii code
 		mov ah,02h 			; code to print a character
-		int 21h 			; bios interrupt - displaying the digit
+		int 21h 			; DOS interrupt - displaying the digit
 		mov dl,bl 			; mov the lower digit of the ascii code
 		mov ah,02h 			; code to print a character
-		int 21h 			; bios interrupt - displaying the digit
+		int 21h 			; DOS interrupt - displaying the digit
 
 		mov ah,4ch 			; code to terminate a program
 		int 21h 			; terminating the program

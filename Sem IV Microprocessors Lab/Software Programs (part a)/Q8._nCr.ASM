@@ -17,7 +17,7 @@
 		call ncr 			; calling ncr procedure
 		call disp 			; calling disp procedure
 		mov ah,4ch 			; Storing code to terminate a process
-		int 21h 			; BIOS interrupt (Terminating the program)
+		int 21h 			; DOS interrupt (Terminating the program)
 
 disp proc
 		mov al,res 			; Copying the result value in al
@@ -30,7 +30,7 @@ disp proc
 		int 21h 			; BIOS interrupt (Displaying a character)
 
 		mov dl,bl 			; Copying the one's digit into dl
-		int 21h 			; BIOS interrupt (Displaying a character)
+		int 21h 			; DOS interrupt (Displaying a character)
 		ret
 disp endp
 

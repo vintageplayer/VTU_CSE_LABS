@@ -34,5 +34,5 @@ write:
 		loop write					; Decrementing count. If not zero, displaying again
 
 		mov ah,4ch					; Code to terminate the process
-		int 21h						; BIOS interrupt (terminating the program)
+		int 21h						; DOS interrupt (terminating the program)
 end
