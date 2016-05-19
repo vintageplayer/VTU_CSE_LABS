@@ -1,12 +1,12 @@
-REQUIREMENTS
+# REQUIREMENTS
 
-ASSEMBLER
+# ASSEMBLER
 
 To run these codes, an assembler is required.
 
-MASM 8086 has been used to develop and test the codes. A copy has been included in the repository.
+MASM 8086 has been used to develop and test the codes. Andcopy has been included in the repository.
 
-DOS-ENVIRONMENT
+# DOS-ENVIRONMENT
 
 If an OS supprting execution of dos commands is not available, emulators can be used.
 
