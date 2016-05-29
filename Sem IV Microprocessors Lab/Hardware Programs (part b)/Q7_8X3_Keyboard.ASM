@@ -59,7 +59,7 @@ second:
 third:
         mov row,02H             ; Storing the row value
 next:
-        mov al,bl               ; Making a copy of the status bits
+        mov bl,al               ; Making a copy of the status bits
         mov cx,0008H            ; Setting the counts for 8 bits
         mov bh,00H              ; Initializing the column count
 shift:
