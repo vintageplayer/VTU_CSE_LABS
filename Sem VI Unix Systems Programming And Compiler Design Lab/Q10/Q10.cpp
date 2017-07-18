@@ -13,11 +13,13 @@ int main()
 {
 	signal(SIGALRM,call_handler);
 	
-	int i,interval;
+	int interval;
 	cout<<"Enter time interval : ";
 	cin>>interval;
+	while(1)
+	{
 	alarm(interval);
 	pause();
-	
+	}
 	return 0;
 }
