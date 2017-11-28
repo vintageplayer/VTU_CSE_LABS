@@ -88,8 +88,8 @@ int main(int argc, char  **argv)
 {
 	glutInit(&argc,argv);
 	glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
-	glutInitWindowPosition(50,50);
-	glutInitWindowSize(500,500);
+	glutInitWindowPosition(100,100);
+	glutInitWindowSize(600,600);
 	glutCreateWindow("House rotation");
 	glutDisplayFunc(display);
 	init();

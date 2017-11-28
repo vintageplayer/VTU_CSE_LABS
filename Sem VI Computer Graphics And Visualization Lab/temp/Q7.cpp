@@ -66,24 +66,15 @@ void displaySolid(void)
 	double winHt = 1.0;
 	glOrtho(-winHt * 64 / 48.0, winHt * 64 / 48.0, -winHt, winHt, 0.1, 100.0);
 	glMatrixMode(GL_MODELVIEW);
+	
 	glLoadIdentity();
 	gluLookAt(2.3, 1.3 , 2.0, 0.0, 0.25, 0.0, 0.0, 1.0, 0.0);
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
 	glPushMatrix();
-	glTranslated(0.4, 0.4, 0.6);
-	glRotated(45, 0, 0, 1);
-	glScaled(0.08, 0.08, 0.08);
-	glPopMatrix();
-
-	glPushMatrix();
 	glTranslated(0.6, 0.38, 0.5);
 	glRotated(30, 0, 1, 0);
 	glutSolidTeapot(0.08);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslated(0.25, 0.42, 0.35);
 	glPopMatrix();
 
 	glPushMatrix();

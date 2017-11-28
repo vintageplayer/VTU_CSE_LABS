@@ -42,8 +42,7 @@ int main()
 	{
 		if(string[i] == '(')
 		{
-			index
-				= 0;
+			index = 0;
 			for(j=i; string[j-1]!=')';j++)
 			{
 				if(string[j]=='\0')
