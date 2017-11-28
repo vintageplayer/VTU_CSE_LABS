@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="b.xsl" ?>
+<info>
+	<student>
+		<Name>Aditya Agarwal</Name>
+		<USN>1PE14CS014</USN>
+		<noc>PESIT South Campus</noc>
+		<branch>CSE</branch>
+		<yoj>2014</yoj>
+		<email>adityag2511@gmail.com</email>
+	</student>
+</info>

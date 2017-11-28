@@ -1,0 +1,30 @@
+* {
+	display: block;
+	text-align: center;
+	width: 50vw;
+}
+student-info {
+	border: solid thick pink;
+	margin-top: 5vh;
+	font-size: 45px;
+	background-color: yellow;
+	margin-left: 25vw;
+}
+stud1 {
+	margin-top: 2vh;
+	border: thick solid black;
+	background-color: red;
+	margin-left: 25vw;
+}
+stud2 {
+	margin-top: 2vh;
+	border: thick solid black;
+	background-color: blue;
+	margin-left: 25vw;
+}
+stud3 {
+	border: thick solid black;
+	background-color: green;
+	margin-left: 25vw;
+	margin-top: 2vh;
+}

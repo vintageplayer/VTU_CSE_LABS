@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet version="1.0" type="text/css" href="a.css" ?>
+<student>
+	<student-info>Student Information</student-info>
+	<stud1>
+		<USN>1PE14CS014</USN>
+		<Name>Aditya Agarwal</Name>
+		<NOC>PESIT South, Bangalore</NOC>
+		<Branch>CSE</Branch>
+		<yoj>2014</yoj>
+		<email>adityag2511@gmail.com</email>
+	</stud1>
+	<stud2>
+		<USN>1PE14CS017</USN>
+		<Name>Akshay Agarwal</Name>
+		<NOC>PESIT South, Bangalore</NOC>
+		<Branch>CSE</Branch>
+		<yoj>2014</yoj>
+		<email>adityag2511@gmail.com</email>
+	</stud2>
+	<stud3>
+		<USN>1PE14CS022</USN>
+		<Name>Amrit Bhat</Name>
+		<NOC>PESIT South, Bangalore</NOC>
+		<Branch>CSE</Branch>
+		<yoj>2014</yoj>
+		<email>adityag2511@gmail.com</email>
+	</stud3>
+</student>
