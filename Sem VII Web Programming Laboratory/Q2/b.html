@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE PUBLIC "-//W3C XHTML DTD//EN" "http://www.w3.org/TR/XHTML/xhtml.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>USN validator</title>
+		<script type="text/javascript">
+			function myFunction(){
+				var USN = document.getElementById("USN").value;
+				var sem = document.getElementById("SEM").value;
+				
+				var res;
+				var re = /^[1-4][a-zA-Z]{2}[0-9]{2}[a-zA-Z]{2}[0-9]{3}$/;
+				if(USN.match(re)){
+					res = "Entered USN is valid.";
+					var d = new Date();
+					var m = d.getMonth();
+					var y = d.getFullYear();
+					var diff = y - (20+USN[3]+USN[4]);
+					
+					if(m>7){
+						if( sem<=(2*diff + 1) ){
+							res += "\nSemester entered is valid.";
+						}
+						else{
+							res += "\nInvalid semester!!";
+						}
+					}
+					else{
+						if( sem<=(2*diff) ){
+							res += "\nSemester entered is valid.";
+						}
+						else{
+							res += "\nInvalid semester!!";
+						}
+					}
+				}
+				else{
+					res = "Entered USN is invalid!!";
+				}
+				alert(res);
+			}
+		</script>
+	</head>
+	<body>
+		<div style="text-align:center;">
+			<form action="javascript:myFunction()">
+				<input type="text" placeholder="Enter USN" id="USN" />
+				<input type="number" placeholder="Enter Semester" id="SEM" />
+				<input type="submit" value="Go" />
+			</form>
+		</div>
+	</body>
+</html>
