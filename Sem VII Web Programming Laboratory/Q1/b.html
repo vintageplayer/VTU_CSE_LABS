@@ -1,0 +1,27 @@
+<?xml verison="1.0" encoding="utf-8" ?>
+<!DOCTYPE PUBLIC "-//W3C XHTML DTD//EN" "http://www.w3.org/TR/XHTML/DTD/xhtml.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Squares of real numbers</title>
+		<script type="text/javascript">
+			function myFunction(){
+				var res = "The number and their squares are :";
+				var n = prompt("Enter n :","");
+				if(n<1){
+					alert("Invalid input!!");
+					return;
+				}
+				
+				for(i=1;i<n;i++){
+					res += "\n"+i+" * "+i+" = "+(i*i);
+				}
+				alert(res);
+			}
+			
+			document.onload = myFunction();
+		</script>
+	</head>
+	<body>
+		<input type="button" value="GO" onClick="myFunction()" />
+	</body>
+<html>

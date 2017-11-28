@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE PUBLIC "-//W3C XHTML DTD//EN" "http://www.w3.org/TR/XHTML/DTD/xhtml.dtd"?
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Fibonacci Series Generator</title>
+		<script type="text/javascript">
+			function myFunction(){
+				var a=0,b=1, res='';
+				var n = prompt("Enter n : ","");
+				if(n<1){
+					alert("Invalid input!!");
+					return;
+				}
+				
+				res = "First "+n+" Fibonacci numbers are :\n"+a;
+				for(i=1;i<n;i++)
+				{
+					res+="\n"+b;
+					b = b + a;
+					a = b - a;
+				}
+				alert(res);
+			}
+			document.onload = myFunction();
+		</script>
+	</head>
+	<body>
+		<input type="button" value="GO" onClick="myFunction()" />
+	</body>
+</html>
