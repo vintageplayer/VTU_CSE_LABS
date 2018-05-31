@@ -1,12 +1,12 @@
 .model small
-
+.stack 64
 .data
-		list dw 1234H,2345H,3456H,4567H,5678H ; Array containing all the values
+                list dw 1234H,2345H,3456H,4567H,5678H ; Array containing all the values
 		len dw ($-list)/2 					  ; Calcualting the number of bytes and dividing by 2
-		m1 db "Element not found!!$
-		m2 db "Element found!!$"
+                m1 db "Element not found!!$"
+                m2 db "Element found!!$"
 		res db "Position : $"
-		key dw 2445H 						  ; Element to search for
+                key dw 5678H                                              ; Element to search for
 
 .code
 		mov ax,@data
@@ -23,6 +23,11 @@ again:
 		cmp cx,list[si]						; Comparing key with lowest element
 		jb fail 							; If key is lower, jumping to fail
 
+		mov si,dx 							; copying the highest element to be compared with
+		add si,si 							; Adjusting index for double byte size
+		cmp cx,list[si]						; Comparing key with highest element
+		ja fail 							; If key is higher, jumping to fail
+
 		mov ax,bx 							; Storing lower index in ax
 		add ax,dx 							; Adding the upper element index to lower element index
 		shr ax,01 							; Shifting bits right by 1 (dividing sum by 2)
@@ -34,6 +39,7 @@ again:
 		dec ax 								; Reducing index by 1
 		mov dx,ax							; Storing mid-1 as the new upper index
 		jmp again 							; Repeating the search
+
 
 big:
 		je success 							; If key is equal to mid element, jumping to success label
